@@ -17,7 +17,8 @@ let backgroundImage,
   gameOverImage,
   enemyBoss1Image,
   enemyBoss2Image,
-  enemyBoss3Image;
+  enemyBoss3Image,
+  petImage;
 
 // 게임의 상태 값
 let gameOver = false; // ture이면 게임이 끝남, false면 게임이 안끝남.
@@ -189,6 +190,9 @@ function loadImage() {
 
   enemyBoss3Image = new Image();
   enemyBoss3Image.src = "images/enemyBoss3.png";
+
+  petImage = new Image();
+  petImage.src = "images/pet.png"
 }
 // 방향키를 누르면 생기는 이벤트 , // 1. 스페이스 바를 누르면 총알이 발사 된다.
 let keysDown = {};
@@ -381,6 +385,7 @@ function update() {
 function render() {
   ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
   ctx.drawImage(spaceshipImage, spaceshipX, spaceshipY);
+  ctx.drawImage(petImage, spaceshipX+10,spaceshipY-10 );
   ctx.fillText(`Score : ${score}`, 60, 20);
   ctx.fillStyle = "white";
   ctx.font = "20px Arial";
